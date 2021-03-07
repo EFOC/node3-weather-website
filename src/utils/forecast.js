@@ -12,7 +12,9 @@ const getForecast = (lat, long, callback) => {
         } else {
             const temp = response.body.current.temperature;
             const feelsLike = response.body.current.feelslike;
-            callback(undefined, `${response.body.current.weather_descriptions[0]}. It is ${temp} degrees outside. It feels like ${feelsLike}.`);
+            const overcast = response.body.current.weather_descriptions[0];
+            const humidity = response.body.current.humidity;
+            callback(undefined, `${response.body.current.weather_descriptions[0]}. It is ${temp} degrees outside. It feels like ${feelsLike}. Overcast is ${overcast} and humidity is ${humidity}`);
         }
     });
 }
